@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' data:; connect-src 'self' https://*.supabase.co;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="light dark">
+  <title>Administrator sign in — Ogbanje Abraham</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/assets/css/auth.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main class="section auth-page" id="main">
+    <div class="container narrow">
+      <section class="auth-card" aria-labelledby="login-title">
+        <a class="auth-brand" href="/">Ogbanje Abraham</a>
+        <p class="eyebrow">Portfolio administration</p>
+        <h1 class="section-title" id="login-title">Sign in</h1>
+        <p class="auth-intro">This area is for the portfolio administrator.</p>
+
+        <form id="login-form" novalidate>
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" autocomplete="username" inputmode="email" required maxlength="254">
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+
+          <button class="btn btn-primary auth-submit" id="submit-button" type="submit">Sign in</button>
+          <p class="auth-message" id="auth-message" role="status" aria-live="polite"></p>
+        </form>
+        <p class="auth-back"><a href="/">Return to the public portfolio</a></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.0" crossorigin="anonymous"></script>
+  <script src="/assets/js/supabase-config.js"></script>
+  <script src="/assets/js/auth-client.js"></script>
+  <script src="/script.js"></script>
+  <script src="/login/login.js"></script>
+</body>
+</html>
