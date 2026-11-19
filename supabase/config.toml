@@ -1,0 +1,7 @@
+project_id = "portfolio-cms"
+
+[auth]
+enable_signup = false
+
+[functions.admin-status]
+verify_jwt = true
