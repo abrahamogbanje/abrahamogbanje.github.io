@@ -188,7 +188,8 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .preloader {
   position: fixed; inset: 0; z-index: 150;
   display: grid; place-items: end start;
-  background: var(--text); color: var(--bg);
+  /* Always dark, in both light and dark mode, so the site never opens on a white flash */
+  background: #07080b; color: #eef0f5;
   padding: var(--gutter);
 }
 .preloader-inner { display: flex; align-items: flex-end; justify-content: space-between; width: 100%; gap: 2rem; padding-bottom: 2.5rem; }
