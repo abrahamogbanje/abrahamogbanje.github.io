@@ -14,13 +14,13 @@ import {
 
 /* A decorative band of words that drifts sideways and speeds up / reverses
    with your scroll. Hidden from screen readers (it only repeats skill names). */
-export default function Marquee({ items, baseVelocity = -2.2 }: { items: string[]; baseVelocity?: number }) {
+export default function Marquee({ items, baseVelocity = -0.8 }: { items: string[]; baseVelocity?: number }) {
   const reduce = useReducedMotion();
   const x = useMotionValue(0);
   const { scrollY } = useScroll();
   const velocity = useVelocity(scrollY);
   const smooth = useSpring(velocity, { damping: 50, stiffness: 400 });
-  const factor = useTransform(smooth, [-1000, 0, 1000], [-4, 0, 4], { clamp: false });
+  const factor = useTransform(smooth, [-1000, 0, 1000], [-1.2, 0, 1.2]);
   const dir = useRef(1);
   const pos = useTransform(x, (v) => `${wrap(-50, 0, v)}%`);
 

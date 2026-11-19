@@ -32,7 +32,11 @@ export default function Header() {
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setScrolled(y > 24);
-    if (open) return;
+    // On phones the header stays put; on larger screens it tucks away while scrolling down
+    if (open || window.matchMedia("(max-width: 760px)").matches) {
+      setHidden(false);
+      return;
+    }
     if (y > prev && y > 240) setHidden(true);
     else if (y < prev - 4) setHidden(false);
   });
