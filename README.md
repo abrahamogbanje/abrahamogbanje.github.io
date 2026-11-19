@@ -19,7 +19,7 @@ Preview locally: double-click `index.html`, or run `python3 -m http.server 8000`
 
 1. **Test the CV buttons** — open `index.html`, click **View CV** (opens the PDF in a new tab) and **Download** (saves `Ogbanje_Abraham_CV.pdf`). After publishing, click both again on the live site.
 2. **Test the WhatsApp and email links** — click each once to confirm they open the right chat and address. Check the email spelling: it is `creativeuivison@gmail.com`.
-3. **Project links** — "ASCII Art Web" and "CampusFlow Next" point at your GitHub profile. Change each to its repository URL: `https://github.com/aogbanje/REPO-NAME`. The PropBrain AI card links to the sample report because that repository is private; add a source link only if it becomes public (the commented line in the card shows how).
+3. **Project links** — "ASCII Art Web" and "CampusFlow Next" point at your GitHub profile. Change each to its repository URL: `https://github.com/abrahamogbanje/REPO-NAME`. The PropBrain AI card links to the sample report because that repository is private; add a source link only if it becomes public (the commented line in the card shows how).
 4. **Live demos** — if a project is hosted, add a "Live demo" link (the comment above the first card shows the exact line).
 5. **Check every claim** — read the About, Skills and Projects text once and edit anything that is not true to you.
 
@@ -37,10 +37,10 @@ If you later buy a custom domain, GitHub Pages redirects the old `github.io` add
 
 Good fit for a developer portfolio: it shows your GitHub activity, updates with a `git push`, and has free HTTPS.
 
-1. On GitHub, create a **public** repository named exactly `aogbanje.github.io` (your username + `.github.io`).
+1. On GitHub, create a **public** repository named exactly `abrahamogbanje.github.io` (your username + `.github.io`).
 2. Upload everything in this folder to it (drag and drop in the browser works, or use `git push`).
 3. Go to **Settings → Pages**. Under "Build and deployment", choose **Deploy from a branch**, branch **main**, folder **/ (root)**, then Save.
-4. After a minute or two the site is live at **https://aogbanje.github.io**.
+4. After a minute or two the site is live at **https://abrahamogbanje.github.io**.
 5. Tick **Enforce HTTPS** on the same page if it is not already on.
 
 Updating later: edit a file, commit, push. The site refreshes in about a minute.
@@ -56,7 +56,7 @@ A name like `ogbanjeabraham.com` (or `.dev`) reads better on a CV than a `github
 1. Buy the domain from a registrar such as Namecheap, Porkbun or Cloudflare. Typical cost is a modest yearly fee.
 2. **GitHub Pages:** in Settings → Pages, enter the domain under "Custom domain". At your registrar's DNS settings, add:
    - four `A` records for the root domain (`@`): `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - a `CNAME` record for `www` pointing to `aogbanje.github.io`
+   - a `CNAME` record for `www` pointing to `abrahamogbanje.github.io`
    (Confirm these values against GitHub's current "Managing a custom domain for your GitHub Pages site" docs before saving.)
 3. Wait for DNS to update (minutes to a few hours), then tick **Enforce HTTPS**.
 4. Optional: create a matching email such as `hello@yourdomain.com` and use it as the address on the site.
