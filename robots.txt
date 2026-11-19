@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# After you have a live URL, add this line with your real address:
+# Sitemap: https://YOUR-LIVE-URL/sitemap.xml
