@@ -6,7 +6,7 @@ Built with **Next.js** (static export), **Motion** for animation and **Lenis** f
 ```
 lib/content.ts        ALL the wording on the site (edit text, links, email, projects, skills here)
 lib/motion.ts         animation curves and the card entrance styles
-app/globals.css       design (colors and fonts are tokens at the top; glass header is section 4)
+app/globals.css       design (colors and fonts are tokens at the top; glass header is section 4). The site opens in dark mode; that default is the `data-theme` on `<html>` in app/layout.tsx
 app/layout.tsx        page title, SEO tags, fonts
 app/page.tsx          section order
 components/           one file per section (Hero, About, Projects, Skills, CV, Contact...)

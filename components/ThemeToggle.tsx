@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-/* Light / dark switch. The choice is remembered; until then the OS setting wins.
+/* Light / dark switch. The site starts dark; a visitor's choice is remembered.
    (The saved choice is applied before paint by the inline script in layout.tsx.) */
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState<boolean | null>(null);

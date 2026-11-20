@@ -29,10 +29,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: "light dark",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#eceef2" },
-    { media: "(prefers-color-scheme: dark)", color: "#07080b" },
-  ],
+  themeColor: "#07080b",
 };
 
 // Structured data: helps search engines understand who this page is about
@@ -46,12 +43,13 @@ const jsonLd = {
   sameAs: ["https://github.com/abrahamogbanje", "https://www.linkedin.com/in/abraham-ogbanje-522744351"],
 };
 
-// Applies a saved light/dark choice before the first paint, so there's no flash
+// The site opens in dark mode. If a visitor switched to light before, their saved
+// choice is applied here, before the first paint, so there's no flash.
 const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
+    <html lang="en" data-theme="dark" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
