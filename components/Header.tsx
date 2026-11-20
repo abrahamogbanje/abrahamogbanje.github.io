@@ -14,10 +14,9 @@ import { useApp } from "./Providers";
 import ThemeToggle from "./ThemeToggle";
 
 /* A frosted glass pill that floats above the page, detached from the edges.
-   It tucks away while you scroll down and glides back when you scroll up. */
+   It stays fixed at the top on every screen size while you scroll. */
 export default function Header() {
   const { ready } = useApp();
-  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -29,17 +28,8 @@ export default function Header() {
   const { scrollY, scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
 
-  useMotionValueEvent(scrollY, "change", (y) => {
-    const prev = scrollY.getPrevious() ?? 0;
-    setScrolled(y > 24);
-    // On phones the header stays put; on larger screens it tucks away while scrolling down
-    if (open || window.matchMedia("(max-width: 760px)").matches) {
-      setHidden(false);
-      return;
-    }
-    if (y > prev && y > 240) setHidden(true);
-    else if (y < prev - 4) setHidden(false);
-  });
+  // Slightly slimmer pill once the page has scrolled
+  useMotionValueEvent(scrollY, "change", (y) => setScrolled(y > 24));
 
   // Highlight the link for the section in the middle of the screen
   useEffect(() => {
@@ -88,11 +78,10 @@ export default function Header() {
       className="site-header"
       id="top"
       initial={{ y: -120, opacity: 0 }}
-      animate={ready ? { y: hidden ? -120 : 0, opacity: hidden ? 0 : 1 } : { y: -120, opacity: 0 }}
-      transition={{ duration: ready && !hidden ? 1 : 0.6, ease: ease.expo, delay: 0 }}
+      animate={ready ? { y: 0, opacity: 1 } : { y: -120, opacity: 0 }}
+      transition={{ duration: 1, ease: ease.expo }}
     >
-      {/* Keyboard users tabbing into a tucked-away header bring it back into view */}
-      <nav ref={navRef} aria-label="Main" className="nav-wrap" onFocusCapture={() => setHidden(false)}>
+      <nav ref={navRef} aria-label="Main" className="nav-wrap">
       <motion.div
         className={`pill ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}
         initial={{ clipPath: "inset(0% 22% 0% 22% round 999px)" }}
